@@ -2,7 +2,7 @@
     "McHost": "mc.66ko.cc",
     "McPort": 25565,
     "McUsername": "user",
-    "McVersion": "1.12.2",
+    "McVersion": "1.8",
     "LogDirectory": "/tmp",
     "LogPrefix": "",
     "LogSuffix": "",
@@ -10,7 +10,7 @@
     "AutoRespond": [
         {
             "pattern": "^生存都市 >> 请输入 /L <密码> 进行登入.$",
-            "response": "/l 23333333"
+            "response": "/l changeme"
         },
         {
             "pattern": "^生存都市>> 匹配成功,欢迎回来。$",
