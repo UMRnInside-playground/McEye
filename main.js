@@ -23,7 +23,7 @@ McClient.prototype.StartClient = function() {
     {
         const obj = config.AutoRespond[i]
         self.client.RegisterPattern(RegExp(obj.pattern), function(p) {
-            client.chat(obj.response)
+            self.client.chat(obj.response)
         })
     }
 }
