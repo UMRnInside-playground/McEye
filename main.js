@@ -26,6 +26,7 @@ McClient.prototype.StartClient = function() {
             self.client.chat(obj.response)
         })
     }
+    self.client.RegisterPattern(RegExp('Could not connect to a default or fallback server, please try again later: io.netty.channel.AbstractChannel$AnnotatedConnectException'), function(p) { process.exit(0) })
 }
 
 

@@ -27,11 +27,15 @@ function InjectClient(client, config, onReconnect)
         console.log('disconnected: ' + packet.reason)
         if (client.logger_config.AutoReconnect)
             setTimeout(client.reconnect_action, 50000)
+	else
+	    process.exit(0)
     })
     client.on('end', function () {
         console.log('Connection lost')
         if (client.logger_config.AutoReconnect)
             setTimeout(client.reconnect_action, 50000)
+	else
+	    process.exit(0)
     })
     client.on('chat', function (packet) {
         const jsonMsg = JSON.parse(packet.message)
