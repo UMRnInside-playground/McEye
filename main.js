@@ -26,7 +26,18 @@ McClient.prototype.StartClient = function() {
             self.client.chat(obj.response)
         })
     }
-    self.client.RegisterPattern(RegExp('Could not connect to a default or fallback server, please try again later: io.netty.channel.AbstractChannel$AnnotatedConnectException'), function(p) { process.exit(0) })
+    self.client.RegisterPattern(RegExp('^生存都市>> 匹配成功,欢迎回来。$'), function(p) {
+        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 3000)
+        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 10000)
+        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 60000)
+        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 60 * 60000)
+    })
+    self.client.RegisterPattern(RegExp('^\[AutoShutdown\](.*?)NOW!'), function(p) {
+        setTimeout(() => {
+            self.client.end("disconnect.quitting")
+            process.exit(0)
+        }, 3000)
+    })
 }
 
 
