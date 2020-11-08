@@ -27,10 +27,16 @@ McClient.prototype.StartClient = function() {
         })
     }
     self.client.RegisterPattern(RegExp('^生存都市>> 匹配成功,欢迎回来。$'), function(p) {
-        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 3000)
-        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 10000)
-        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 60000)
-        setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), 60 * 60000)
+        let delay = [3, 10, 30, 60, 10*60, 30*60, 120*60, 180*60, 240*60]
+        for (var i in delay) {
+            setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), delay[i] *  1000)
+        }
+    })
+    self.client.RegisterPattern(RegExp('^生存都市 >> 登入成功,正在匹配大厅...$'), function(p) {
+        let delay = [5, 15, 5*60, 15*60, 100*60, 200*60, 300*60]
+        for (var i in delay) {
+            setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), delay[i] *  1000)
+        }
     })
     self.client.RegisterPattern(RegExp('^\[AutoShutdown\](.*?)NOW!'), function(p) {
         setTimeout(() => {
