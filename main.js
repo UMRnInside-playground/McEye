@@ -33,7 +33,7 @@ McClient.prototype.StartClient = function() {
         }
     })
     self.client.RegisterPattern(RegExp('^生存都市 >> 登入成功,正在匹配大厅...$'), function(p) {
-        let delay = [5, 15, 5*60, 15*60, 100*60, 200*60, 300*60]
+        let delay = [5*60, 15*60, 100*60, 200*60, 300*60]
         for (var i in delay) {
             setTimeout(() => self.client.chat(`/stp ${self.client.logger_config.SubServer}`), delay[i] *  1000)
         }
